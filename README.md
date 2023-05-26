@@ -128,7 +128,7 @@ $ ssh-keygen -t ecdsa-sk -C "your_email@example.com"
 
   
 
-1. Dans un **Terminal**, cloner le repository **Github** avec cette commande en vous plaçant la où vous souhaitez que le projet se situe sur votre machine :
+1. Dans un **Terminal**, cloner le [repository](https://github.com/FrasKc/crud-nodeJS) **Github** avec cette commande en vous plaçant la où vous souhaitez que le projet se situe sur votre machine :
 
 ```bash
 
