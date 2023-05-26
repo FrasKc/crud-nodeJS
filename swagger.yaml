@@ -1,0 +1,98 @@
+openapi: 3.0.0
+info:
+  title: Firebase Realtime Database CRUD API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/import-data:
+    post:
+      summary: Importer les données à partir d'un fichier CSV
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                path:
+                  type: string
+      responses:
+        '200':
+          description: Importation réussie
+        '500':
+          description: Erreur lors de l'importation des données
+  /api/contacts:
+    get:
+      summary: Récupérer toutes les données
+      responses:
+        '200':
+          description: Succès
+    post:
+      summary: Créer une nouvelle donnée
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                adress:
+                  type: string
+                country:
+                  type: string
+                departement:
+                  type: string
+                email:
+                  type: string
+                name:
+                  type: string
+                realAdress:
+                  type: string
+                tel:
+                  type: string
+                title:
+                  type: string
+      responses:
+        '200':
+          description: Donnée créée avec succès
+        '500':
+          description: Erreur lors de la création de la donnée
+  /api/contacts/{id}:
+    put:
+      summary: Mettre à jour une donnée existante
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fieldToUpdate:
+                  type: string
+                newValue:
+                  type: string
+      responses:
+        '200':
+          description: Donnée mise à jour avec succès
+        '500':
+          description: Erreur lors de la mise à jour de la donnée
+    delete:
+      summary: Supprimer une donnée existante
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Donnée supprimée avec succès
+        '500':
+          description: Erreur lors de la suppression de la donnée
