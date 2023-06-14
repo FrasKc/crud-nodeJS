@@ -2,6 +2,9 @@ const express = require('express');
 const admin = require('firebase-admin');
 const fs = require('fs');
 const csv = require('csv-parser');
+const YAML = require('yamljs');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = YAML.load('./swagger.yaml');
 
 // Initialisez l'application Firebase avec vos informations de configuration
 const serviceAccount = require('./serviceAccountKey.json');
@@ -18,6 +21,9 @@ const port = 3000;
 
 // Middleware pour parser le JSON
 app.use(express.json());
+
+// Lien vers le Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Importer les données du fichier CSV
 app.post('/api/import-data', (req, res) => {
