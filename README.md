@@ -174,7 +174,7 @@ databaseURL: `VOTRE URL`
 
 ```bash
 
-npm install firebase-admin fs readline csv-parser
+npm install
 
 ```
 
@@ -192,7 +192,7 @@ node index.js
 
 ```bash
 
-npm install firebase-admin fs readline express csv-parser joi
+npm install
 
 ```
 
