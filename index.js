@@ -70,6 +70,45 @@ function lireDonnees(cheminFichierCSV) {
   });
 }
 
+// Fonction pour trier les données en fonction du numéro de téléphone avec le plus d'occurrences
+async function trierParOccurrenceNumeroTelephone(collectionPath) {
+  try {
+    const snapshot = await admin.database().ref(collectionPath).once("value");
+    const data = snapshot.val();
+
+    // Compter le nombre d'occurrences de chaque numéro de téléphone
+    const occurrences = {};
+    for (const key in data) {
+      const item = data[key];
+         console.log(item.id)
+      const numeroTelephone = item.tel;
+   
+      if (numeroTelephone in occurrences) {
+        console.log('bizarre')
+        occurrences[numeroTelephone]++;
+      } else {
+        occurrences[numeroTelephone] = 1;
+        console.log('jejej')
+      }
+    }
+
+    // Trier les données en fonction du nombre d'occurrences de chaque numéro de téléphone
+    const sortedData = Object.keys(data).sort((a, b) => {
+      const occurrenceA = occurrences[data[a].tel];
+      const occurrenceB = occurrences[data[b].tel];
+      return occurrenceB - occurrenceA;
+    });
+
+    // Récupérer les données triées dans l'ordre
+    const sortedItems = sortedData.map((key) => data[key]);
+
+    return sortedItems;
+  } catch (error) {
+    console.error("Erreur lors de la récupération et du tri des données :", error);
+    throw error;
+  }
+}
+
 // Fonction pour mettre à jour une donnée dans Firestore
 function mettreAJourDonnee(cheminFichierCSV , id, fieldToUpdate, newValue) {
   const ref = db.ref(`${cheminFichierCSV}/${id}`);
@@ -106,7 +145,9 @@ function menuPrincipal() {
   console.log("3. Mettre à jour une donnée");
   console.log("4. Supprimer une donnée");
   console.log("5. Créer une donnée");
-  console.log("6. Quitter");
+  console.log("6. ");
+  console.log("7. Tri par Occurence de numéro");
+  console.log("8. Quitter");
 
   const rl = readline.createInterface({
     input: process.stdin,
@@ -183,7 +224,16 @@ function menuPrincipal() {
           })
         })
         break;
-      case "6":
+        case "6":
+        rl.question("Veuillez saisir l'ID du document à supprimer : ", (id) => {
+          supprimerDonnee('contacts',id);
+          rl.close();
+        });
+        break;
+      case "7":
+        trierParOccurrenceNumeroTelephone()
+        break;
+        case "8":
         rl.close();
         break;
       default:

@@ -121,7 +121,24 @@ $ ssh-keygen -t ecdsa-sk -C "your_email@example.com"
 5. Ajoutez la clé SSH à votre compte sur GitHub. Pour plus d’informations, consultez « [Ajout d’une nouvelle clé SSH à votre compte GitHub](https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) ».
 
   
-  
+## Creer une db sur Firebase Realtime Database
+
+1. Aller sur https://firebase.google.com/
+
+2. Cliquez sur "Get Started" et "Ajouter un projet" pour créer un nouveau projet
+
+3. Donnez lui le nom que vous souhaitez et cliquer sur "Continuer", Configurez votre projet comme vous le souhaitez et cliquer sur "Créer un projet"
+
+4. une fois sur votre projet, rendez-vous sur "Catégories de produits" --> "Créer" --> "Realtime Database" puis cliquez sur "Créer une base de données"
+
+5. Choisissez son emplacement et selectionnez l'option "Démarrer en mode test" puis cliquez sur "Activer"
+
+6. Dans la sidenav a gauche, cliquez sur l'engrenage se situant à coté de "Vue d'ensemble du projet" puis cliquez sur "Paramètres du projet"
+
+7. Cliquez sur l'onglet "Compte de service". Dans l'onglet "SDK Admin Firebase" cliquez sur "Node.js" et Cliquez sur "Générer une nouvelle clé"
+
+8. Une fois la clé téléchargée, renommez le fichier en "serviceAccountKey.json" et placez ce fichier dans la racine du projet
+
   
 
 ## Cloner le Repository et Utiliser le CRUD
@@ -149,5 +166,23 @@ npm install firebase-admin fs readline csv-parser
 ```bash
 
 node index.js
+
+```
+
+## Utiliser le CRUD
+
+1. Mettez à jour les dépendances :
+
+```bash
+
+npm install 
+
+```
+
+2. Lancer le projet en utilisant :
+
+```bash
+
+node server.js
 
 ```
