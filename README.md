@@ -120,6 +120,15 @@ $ ssh-keygen -t ecdsa-sk -C "your_email@example.com"
 
 5. Ajoutez la clé SSH à votre compte sur GitHub. Pour plus d’informations, consultez « [Ajout d’une nouvelle clé SSH à votre compte GitHub](https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) ».
 
+## Cloner le Repository
+
+1. Dans un **Terminal**, cloner le [repository](https://github.com/FrasKc/crud-nodeJS) **Github** avec cette commande en vous plaçant la où vous souhaitez que le projet se situe sur votre machine :
+
+```bash
+
+git clone git@github.com:FrasKc/crud-nodeJS.git
+
+```
   
 ## Creer une db sur Firebase Realtime Database
 
@@ -139,21 +148,29 @@ $ ssh-keygen -t ecdsa-sk -C "your_email@example.com"
 
 8. Une fois la clé téléchargée, renommez le fichier en "serviceAccountKey.json" et placez ce fichier dans la racine du projet
 
-  
+9. Dans la sidenav à gauche cliquez sur "Realtime Database". Dans la partie "Données" copiez l'url de la base de donnée se situant en haut du tableau.
 
-## Cloner le Repository et Utiliser le CRUD
-
-  
-
-1. Dans un **Terminal**, cloner le [repository](https://github.com/FrasKc/crud-nodeJS) **Github** avec cette commande en vous plaçant la où vous souhaitez que le projet se situe sur votre machine :
+10. Rendez-vous sur le code dans 'index.js' ligne 11 et collez votre url :
 
 ```bash
 
-git clone git@github.com:FrasKc/crud-nodeJS.git
+databaseURL: `VOTRE URL`
 
 ```
 
-2. Une fois le projet cloné sur votre machine, il est nécessaire d'installer les dépendances nécessaires pour **Firebase Realtime Database** :
+11. Rendez-vous sur le code dans 'server.js' ligne 13 et collez votre url :
+
+```bash
+
+databaseURL: `VOTRE URL`
+
+```
+
+
+
+## Utiliser le CRUD
+
+1. Une fois le projet cloné sur votre machine, il est nécessaire d'installer les dépendances nécessaires pour **Firebase Realtime Database** :
 
 ```bash
 
@@ -161,7 +178,7 @@ npm install firebase-admin fs readline csv-parser
 
 ```
 
-3. Lancer le projet en utilisant :
+2. Lancer le projet en utilisant :
 
 ```bash
 

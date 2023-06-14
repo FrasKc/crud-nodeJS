@@ -8,7 +8,7 @@ const csv = require('csv-parser');
 const serviceAccount = require("./serviceAccountKey.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: `https://test-firbase-4c431-default-rtdb.europe-west1.firebasedatabase.app/`
+  databaseURL: `` // Votre URL de base de données
 });
 
 // Référence à la collection Firestore
