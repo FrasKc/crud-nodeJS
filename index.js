@@ -3,6 +3,7 @@ const fs = require("fs");
 const readline = require("readline");
 const csv = require('csv-parser');
 
+
 // Initialisez l'application Firebase avec vos informations de configuration
 const serviceAccount = require("./serviceAccountKey.json");
 admin.initializeApp({
