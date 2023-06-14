@@ -175,7 +175,7 @@ node index.js
 
 ```bash
 
-npm install 
+npm install firebase-admin fs readline express csv-parser joi
 
 ```
 
