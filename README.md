@@ -169,7 +169,7 @@ node index.js
 
 ```
 
-## Utiliser le CRUD
+## Utiliser l'API
 
 1. Mettez à jour les dépendances :
 
