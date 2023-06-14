@@ -28,7 +28,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Importer les données du fichier CSV
 app.post('/api/import-data', (req, res) => {
   const cheminFichierCSV = req.body.path;
-  const isFirstLine = true;
+  let isFirstLine = true;
 
   fs.createReadStream(cheminFichierCSV)
     .pipe(csv({ separator: ',' }))
